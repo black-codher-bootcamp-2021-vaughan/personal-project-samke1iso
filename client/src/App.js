@@ -1,43 +1,16 @@
 import React, { useState, useEffect } from "react";
+import Question from "./components/Question"
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+// import { getAllQuestions } from "./services/quizService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
-
-  useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
-      }
-    }
-
-    getProfiles();
-  }, [profiles]);
-
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
-  };
-
   return (
     <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
+      <h2> Hello
+        
+      </h2>
+      <Question></Question>
     </div>
   );
 }
