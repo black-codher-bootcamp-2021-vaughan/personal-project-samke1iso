@@ -13,15 +13,16 @@ function App() {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        setQuestions(result.items);
+        setQuestions(result);
       });
   }, []);
+  console.log(questions)
   return (
     <div>
       <h2> Hello
 
       </h2>
-      <Question></Question>
+      <Question questions={questions}></Question>
     </div>
   );
 }
